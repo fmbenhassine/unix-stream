@@ -18,13 +18,15 @@ You can use XSteam in two ways:
 ## 1. Either unixifiy your stream and process it the unix way:
 
 ```java
-Stream<String> stream = Stream.of("foo", "bar", "baz");
+Stream<String> stream = Stream.of("foo", "bar", "bar", "baz");
+
 XStream.unixify(stream)
         .grep("a")
         .sort()
         .uniq()
         .nl()
         .to(stdOut());
+        
 // prints:
 // 1 bar
 // 2 baz
@@ -34,6 +36,7 @@ XStream.unixify(stream)
 
 ```java
 // cat input.txt | grep a | sort | uniq | nl > output.txt
+
 XStream.cat("input.txt")
         .pipe(grep("a"))
         .pipe(sort())
@@ -64,7 +67,7 @@ Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/U
 * Do one thing and do it well
 * Side-effect free
 
- You can find a complete reference of built-in components in the [wiki page](https://github.com/benas/xstream/wiki).
+You can find a complete reference of built-in components in the [wiki page](https://github.com/benas/xstream/wiki).
 
 # How to extend it ?
 
