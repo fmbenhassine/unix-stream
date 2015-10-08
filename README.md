@@ -15,7 +15,7 @@ It provides a set of components that mimic most of Unix processing commands.
 
 You can use XSteam in two ways:
 
-## 1. Either unixifiy your stream and process it the unix way:
+#### 1. Either unixifiy your stream and process it the unix way:
 
 ```java
 Stream<String> stream = Stream.of("foo", "bar", "bar", "baz");
@@ -32,7 +32,7 @@ XStream.unixify(stream)
 // 2 baz
 ```
 
-## 2. Or write your pipelines as you read them
+#### 2. Or write your pipelines as you read them
 
 ```java
 // cat input.txt | grep a | sort | uniq | nl > output.txt
