@@ -5,9 +5,9 @@ It provides a set of components that mimic most of Unix processing commands.
 
 # Features
 
-* 100% compatibles with Java 8 Streams
+* 100% compatible with Java 8 Streams
 * Intuitive, flexible and extensible API
-* A toolbox of reusable data-science components
+* A toolbox of reusable components
 * No dependencies
 * Free and open source
 
@@ -51,7 +51,7 @@ Add the following dependency to your project:
 
  ```xml
 <dependency>
-    <groupId>com.github.benas</groupId>
+    <groupId>io.github.benas</groupId>
     <artifactId>xstream</artifactId>
     <version>0.1</version>
 </dependency>
@@ -59,7 +59,7 @@ Add the following dependency to your project:
 
 # Built-in components library
 
-XStream provides a toolbox of reusable components that mimic Unix's text utilities (and more).
+XStream provides a toolbox of reusable components that mimic Unix's commands (and more).
 Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Mike_Gancarz:_The_UNIX_Philosophy) and are intended to be:
 
 * Small
@@ -86,7 +86,7 @@ public interface Stage<I,O> {
 ```
 
 All built-in components are implemented as filters/transformers through this interface.
-You can implement this interface to contribute your own your components.
+You can of course implement this interface to contribute your own components.
 
 # Contribution
 
