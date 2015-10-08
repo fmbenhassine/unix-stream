@@ -67,7 +67,11 @@ Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/U
 * Do one thing and do it well
 * Side-effect free
 
-You can find a complete reference of built-in components in the [wiki page](https://github.com/benas/xstream/wiki).
+Here are some of the built-in components:
+
+![](https://github.com/benas/xstream/raw/master/xstream.jpeg)
+
+You can find a complete reference of components in the [wiki page](https://github.com/benas/xstream/wiki).
 
 # How to extend it ?
 
