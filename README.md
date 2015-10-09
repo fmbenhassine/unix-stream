@@ -1,7 +1,7 @@
 # What is XStream?
 
 XStream (uniX Stream) is an extension of the Java 8 Stream API to process data pipelines the Unix way.
-It provides a set of components that mimic most of Unix processing commands.
+It provides a set of components that mimic Unix processing commands.
 
 # Features
 
@@ -13,7 +13,7 @@ It provides a set of components that mimic most of Unix processing commands.
 
 # How to use it?
 
-You can use XSteam in two ways:
+You can use XStream in two ways:
 
 #### 1. Either unixifiy your stream and process it the unix way:
 
@@ -47,7 +47,7 @@ XStream.cat("input.txt")
 
 # Where to find it?
 
-Add the following dependency to your project:
+Add the following maven dependency to your project:
 
  ```xml
 <dependency>
@@ -57,9 +57,11 @@ Add the following dependency to your project:
 </dependency>
  ```
 
-# Built-in components library
+Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/xstream/0.1/xstream.jar) and add it to your application's classpath.
 
-XStream provides a toolbox of reusable components that mimic Unix's commands (and more).
+# Components library
+
+XStream provides a toolbox of reusable components that mimic Unix commands (and more).
 Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Mike_Gancarz:_The_UNIX_Philosophy) and are intended to be:
 
 * Small
@@ -86,11 +88,12 @@ public interface Stage<I,O> {
 ```
 
 All built-in components are implemented as filters/transformers through this interface.
-You can of course implement this interface to contribute your own components.
+You can of course implement this interface to create your own components.
 
 # Contribution
 
-You are welcome to contribute components to make the toolbox as rich as possible!
+There are a lot of options for current components that are not implemented yet.
+You are welcome to improve existing components or add new ones to make the toolbox as rich as possible!
 
 # License
 
