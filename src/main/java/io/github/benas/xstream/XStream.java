@@ -6,8 +6,7 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
@@ -16,13 +15,31 @@ import static java.nio.file.Files.lines;
 public interface XStream<T> extends Stream<T> {
 
     /*
-     * Input stream methods
+     * static factory methods to create xstreams
      */
-    static <T> XStream<T> unixify(Stream<T> stream) {
-        return new XStreamImpl<>(stream);
+
+    static XStream<String> cat() throws IOException {
+        return new XStreamImpl<>(Stream.generate(new StandardInputSupplier()));
     }
 
-    static <T> XStream<T> from(Stream<T> stream) {
+    static XStream<String> cat(final String filePath) throws IOException {
+        Objects.requireNonNull(filePath, "The file path must not be null");
+        return new XStreamImpl<>(lines(Paths.get(filePath)));
+    }
+
+    static XStream<String> concat(final Stream<String> stream1, final Stream<String> stream2) throws IOException {
+        Objects.requireNonNull(stream1, "The first stream must not be null");
+        Objects.requireNonNull(stream2, "The second stream must not be null");
+        return new XStreamImpl<>(Stream.concat(stream1, stream2));
+    }
+
+    static XStream<String> echo(final String input) {
+        Objects.requireNonNull(input, "The input must not be null");
+        return new XStreamImpl<>(Stream.of(input));
+    }
+
+    static <T> XStream<T> from(final Stream<T> stream) {
+        Objects.requireNonNull(stream, "The input stream must not be null");
         return new XStreamImpl<>(stream);
     }
 
@@ -30,7 +47,8 @@ public interface XStream<T> extends Stream<T> {
         return ls(Paths.get("").toFile().getAbsolutePath());
     }
 
-    static XStream<String> ls(String directory) throws IOException {
+    static XStream<String> ls(final String directory) throws IOException {
+        Objects.requireNonNull(directory, "The directory must not be null");
         File[] files = new File(directory).listFiles();
         if (files != null) {
             return new XStreamImpl<>(Arrays.stream(files).map(File::getName));
@@ -38,28 +56,17 @@ public interface XStream<T> extends Stream<T> {
         return new XStreamImpl<>(Stream.empty());
     }
 
-    static XStream<String> cat() throws IOException {
-        return new XStreamImpl<>(Stream.generate(new StandardInputSupplier()));
-    }
-    
-    static XStream<String> cat(String filePath) throws IOException {
-        return new XStreamImpl<>(lines(Paths.get(filePath)));
-    }
-
-    static XStream<String> concat(Stream<String> stream1, Stream<String> stream2) throws IOException {
-        return new XStreamImpl<>(Stream.concat(stream1, stream2));
-    }
-
-    static XStream<String> echo(String input) {
-        return new XStreamImpl<>(Stream.of(input));
-    }
-
-    static XStream<String> pwd(String input) {
+    static XStream<String> pwd() {
         return new XStreamImpl<>(Stream.of(Paths.get("").toFile().getAbsolutePath()));
+    }
+
+    static <T> XStream<T> unixify(final Stream<T> stream) {
+        Objects.requireNonNull(stream, "The input stream must not be null");
+        return new XStreamImpl<>(stream);
     }
     
     /*
-     * Output stream methods 
+     * Static factory methods to create print writers. 
      */
     
     static PrintWriter stdOut() {
@@ -74,53 +81,53 @@ public interface XStream<T> extends Stream<T> {
         return new PrintWriter(new FileWriter(filePath), true);
     }
 
-    void to(PrintWriter printWriter) throws IOException;
-
     /*
-     * Additional commands
+     * XStream methods
      */
     
-    <R> XStream<R> pipe(Stage<T, R> stage);
-    
     XStream<String> compact();
-    
-    XStream<String> cut(String delimiter, int field);
+
+    XStream<String> cut(final String delimiter, final int field);
 
     XStream<String> dos2unix();
 
-    XStream<T> exclude(Predicate<T> predicate);
+    XStream<T> exclude(final Predicate<T> predicate);
     
     XStream<String> expand();
-    
-    XStream<String> fold(int size);
 
-    XStream<String> grep(String pattern);
+    XStream<String> fold(final int size);
+
+    Stream<T> get();
+
+    XStream<String> grep(final String pattern);
     
     XStream<T> head();
 
-    XStream<T> head(long size);
+    XStream<T> head(final long size);
     
     XStream<String> lowercase();
 
     XStream<String> nl();
+
+    <R> XStream<R> pipe(final Stage<T, R> stage);
     
     XStream<T> reverse();
 
     XStream<T> sort();
 
-    XStream<T> sort(Comparator<? super T> comparator);
+    XStream<T> sort(final Comparator<? super T> comparator);
 
     XStream<String> str();
 
     XStream<T> tail();
 
-    XStream<T> tail(long size);
+    XStream<T> tail(final long size);
 
-    XStream<String> tr(String regexp, String replacement);
+    XStream<String> tr(final String regexp, final String replacement);
     
     XStream<String> trim();
-    
-    XStream<String> trunc(int size);
+
+    XStream<String> trunc(final int size);
 
     XStream<String> unexpand();
 
@@ -130,45 +137,8 @@ public interface XStream<T> extends Stream<T> {
 
     XStream<String> wc();
 
-    XStream<String> wc(WordCount.Option option);
+    XStream<String> wc(final WordCount.Option option);
 
-    Stream<T> get();
-
-    /*
-     * Inherited methods
-     */
-    
-    @Override
-    XStream<T> sorted();
-    
-    @Override
-    XStream<T> sorted(Comparator<? super T> comparator);
-
-    @Override
-    XStream<T> distinct();
-
-    @Override
-    XStream<T> filter(Predicate<? super T> predicate);
-
-    @Override
-    <R> XStream<R> flatMap(Function<? super T, ? extends Stream<? extends R>> mapper);
-
-    @Override
-    XStream<T> limit(long maxSize);
-
-    @Override
-    <R> XStream<R> map(Function<? super T, ? extends R> mapper);
-
-    @Override
-    XStream<T> peek(Consumer<? super T> action);
-
-    @Override
-    XStream<T> skip(long n);
-
-    @Override
-    XStream<T> parallel();
-
-    @Override
-    XStream<T> sequential();
+    void to(final PrintWriter printWriter) throws IOException;
 
 }
