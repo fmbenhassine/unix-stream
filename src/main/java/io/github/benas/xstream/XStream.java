@@ -6,6 +6,7 @@ import java.io.*;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -31,6 +32,10 @@ public interface XStream<T> extends Stream<T> {
         Objects.requireNonNull(stream1, "The first stream must not be null");
         Objects.requireNonNull(stream2, "The second stream must not be null");
         return new XStreamImpl<>(Stream.concat(stream1, stream2));
+    }
+
+    static XStream<String> date() {
+        return new XStreamImpl<>(Stream.of(new Date().toString()));
     }
 
     static XStream<String> echo(final String input) {
