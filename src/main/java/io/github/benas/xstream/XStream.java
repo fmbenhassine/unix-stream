@@ -1,12 +1,8 @@
 package io.github.benas.xstream;
 
-import static java.nio.file.Files.lines;
+import io.github.benas.xstream.components.WordCount;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+import java.io.*;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -14,7 +10,8 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
-import io.github.benas.xstream.components.WordCount;
+
+import static java.nio.file.Files.lines;
 
 public interface XStream<T> extends Stream<T> {
 
@@ -131,7 +128,7 @@ public interface XStream<T> extends Stream<T> {
 
     XStream<String> wc();
 
-    XStream<String> wc(WordCount.WordCountOption wordCountOption);
+    XStream<String> wc(WordCount.Option option);
 
     Stream<T> get();
 

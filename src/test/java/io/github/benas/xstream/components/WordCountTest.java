@@ -1,17 +1,20 @@
 package io.github.benas.xstream.components;
 
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static io.github.benas.xstream.components.WordCount.Option.L;
 
 public class WordCountTest {
 
     private Stream<String> stream;
 
-    private WordCount wordCount;
+    private WordCount wc;
 
     @Before
     public void setUp() {
@@ -20,18 +23,18 @@ public class WordCountTest {
 
     @Test
     public void apply_whenCountWords() {
-        wordCount = WordCount.wordCount();
-        
-        List<String> strings = wordCount.apply(stream).collect(Collectors.toList());
+        wc = WordCount.wc();
+
+        List<String> strings = wc.apply(stream).collect(Collectors.toList());
 
         Assertions.assertThat(strings).isNotEmpty().hasSize(1).containsExactly("5");
     }
 
     @Test
     public void apply_whenCountLines() {
-        wordCount = WordCount.wordCount(WordCount.WordCountOption.L);
-        
-        List<String> strings = wordCount.apply(stream).collect(Collectors.toList());
+        wc = WordCount.wc(L);
+
+        List<String> strings = wc.apply(stream).collect(Collectors.toList());
 
         Assertions.assertThat(strings).isNotEmpty().hasSize(1).containsExactly("2");
     }

@@ -1,46 +1,15 @@
 package io.github.benas.xstream;
 
+import io.github.benas.xstream.components.*;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.Optional;
 import java.util.Spliterator;
-import java.util.function.BiConsumer;
-import java.util.function.BiFunction;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.IntFunction;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
-import java.util.function.ToDoubleFunction;
-import java.util.function.ToIntFunction;
-import java.util.function.ToLongFunction;
-import java.util.stream.Collector;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
-
-import io.github.benas.xstream.components.Compact;
-import io.github.benas.xstream.components.Cut;
-import io.github.benas.xstream.components.Dos2Unix;
-import io.github.benas.xstream.components.Expand;
-import io.github.benas.xstream.components.Fold;
-import io.github.benas.xstream.components.Grep;
-import io.github.benas.xstream.components.Head;
-import io.github.benas.xstream.components.LowerCase;
-import io.github.benas.xstream.components.NumberLines;
-import io.github.benas.xstream.components.Reverse;
-import io.github.benas.xstream.components.Stringify;
-import io.github.benas.xstream.components.Tail;
-import io.github.benas.xstream.components.Translate;
-import io.github.benas.xstream.components.Trim;
-import io.github.benas.xstream.components.Truncate;
-import io.github.benas.xstream.components.UnExpand;
-import io.github.benas.xstream.components.UpperCase;
-import io.github.benas.xstream.components.WordCount;
+import java.util.function.*;
+import java.util.stream.*;
 
 class XStreamImpl<T> implements XStream<T> {
     
@@ -378,12 +347,12 @@ class XStreamImpl<T> implements XStream<T> {
 
     @Override
     public XStream<String> wc() {
-        return wc(WordCount.WordCountOption.L);
+        return wc(WordCount.Option.L);
     }
 
     @Override
-    public XStream<String> wc(WordCount.WordCountOption wordCountOption) {
-        return new XStreamImpl<>(WordCount.wordCount(wordCountOption).apply(new Stringify<T>().apply(stream)));
+    public XStream<String> wc(WordCount.Option option) {
+        return new XStreamImpl<>(WordCount.wc(option).apply(new Stringify<T>().apply(stream)));
     }
 
     @Override
