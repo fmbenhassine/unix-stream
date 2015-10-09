@@ -11,6 +11,10 @@ class AbstractXStream<T> {
 
     protected Stream<T> stream;
 
+    protected AbstractXStream(final Stream<T> stream) {
+        this.stream = stream;
+    }
+
     public XStream<T> filter(Predicate<? super T> predicate) {
         return new XStreamImpl<>(stream.filter(predicate));
     }

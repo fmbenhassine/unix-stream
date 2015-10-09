@@ -9,11 +9,9 @@ import java.util.function.Predicate;
 import java.util.stream.Stream;
 
 class XStreamImpl<T> extends AbstractXStream<T> implements XStream<T> {
-    
-    protected Stream<T> stream;
 
     XStreamImpl(final Stream<T> stream) {
-        this.stream = stream;
+        super(stream);
     }
 
     @Override
