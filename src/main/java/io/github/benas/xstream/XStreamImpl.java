@@ -327,7 +327,7 @@ class XStreamImpl<T> implements XStream<T> {
 
     @Override
     public XStream<String> trunc(int size) {
-        return new XStreamImpl<>(Truncate.truncate(size).apply(new Stringify<T>().apply(stream)));
+        return new XStreamImpl<>(Truncate.trunc(size).apply(new Stringify<T>().apply(stream)));
     }
 
     @Override

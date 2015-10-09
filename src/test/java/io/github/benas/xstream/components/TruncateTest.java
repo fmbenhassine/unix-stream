@@ -1,12 +1,13 @@
 package io.github.benas.xstream.components;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TruncateTest {
 
@@ -17,7 +18,7 @@ public class TruncateTest {
     @Before
     public void setUp() {
         stream = Stream.of("abcd", "efgh");
-        truncate = Truncate.truncate(2);
+        truncate = Truncate.trunc(2);
     }
 
     @Test
