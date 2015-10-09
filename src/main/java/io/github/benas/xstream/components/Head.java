@@ -1,7 +1,8 @@
 package io.github.benas.xstream.components;
 
-import java.util.stream.Stream;
 import io.github.benas.xstream.Stage;
+
+import java.util.stream.Stream;
 
 public class Head<T> implements Stage<T, T> {
 
@@ -13,7 +14,10 @@ public class Head<T> implements Stage<T, T> {
         this(DEFAULT_SIZE);
     }
 
-    public Head(long size) {
+    public Head(final long size) {
+        if (size < 1) {
+            throw new IllegalArgumentException("Size must be >= 1");
+        }
         this.size = size;
     }
     
@@ -21,7 +25,7 @@ public class Head<T> implements Stage<T, T> {
         return new Head<>();
     }
 
-    public static <T> Head<T> head(long size) {
+    public static <T> Head<T> head(final long size) {
         return new Head<>(size);
     }
 

@@ -1,7 +1,9 @@
 package io.github.benas.xstream.components;
 
-import java.util.stream.Stream;
 import io.github.benas.xstream.Stage;
+
+import java.util.Objects;
+import java.util.stream.Stream;
 
 public class Translate implements Stage<String, String> {
     
@@ -9,12 +11,14 @@ public class Translate implements Stage<String, String> {
     
     private String replacement;
 
-    public Translate(String regexp, String replacement) {
+    public Translate(final String regexp, final String replacement) {
+        Objects.requireNonNull("regexp must not be null");
+        Objects.requireNonNull("replacement must not be null");
         this.regexp = regexp;
         this.replacement = replacement;
     }
 
-    public static Translate translate(String regexp, String replacement) {
+    public static Translate translate(final String regexp, final String replacement) {
         return new Translate(regexp, replacement);
     }
 
