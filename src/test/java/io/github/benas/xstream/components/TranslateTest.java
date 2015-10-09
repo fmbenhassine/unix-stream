@@ -1,12 +1,13 @@
 package io.github.benas.xstream.components;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class TranslateTest {
 
@@ -17,7 +18,7 @@ public class TranslateTest {
     @Before
     public void setUp() {
         stream = Stream.of("a", "b");
-        translate = Translate.translate("a", "b");
+        translate = Translate.tr("a", "b");
     }
 
     @Test

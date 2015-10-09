@@ -317,7 +317,7 @@ class XStreamImpl<T> implements XStream<T> {
     
     @Override
     public XStream<String> tr(String regexp, String replacement) {
-        return new XStreamImpl<>(Translate.translate(regexp, replacement).apply(new Stringify<T>().apply(stream)));
+        return new XStreamImpl<>(Translate.tr(regexp, replacement).apply(new Stringify<T>().apply(stream)));
     }
 
     @Override

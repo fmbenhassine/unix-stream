@@ -18,7 +18,7 @@ public class Translate implements Stage<String, String> {
         this.replacement = replacement;
     }
 
-    public static Translate translate(final String regexp, final String replacement) {
+    public static Translate tr(final String regexp, final String replacement) {
         return new Translate(regexp, replacement);
     }
 
