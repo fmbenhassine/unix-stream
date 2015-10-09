@@ -251,6 +251,11 @@ class XStreamImpl<T> implements XStream<T> {
     }
 
     @Override
+    public XStream<T> exclude(Predicate<T> predicate) {
+        return new XStreamImpl<>(Exclude.exclude(predicate).apply(stream));
+    }
+
+    @Override
     public XStream<String> expand() {
         return new XStreamImpl<>(Expand.expand().apply(new Stringify<T>().apply(stream)));
     }

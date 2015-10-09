@@ -87,6 +87,8 @@ public interface XStream<T> extends Stream<T> {
     XStream<String> cut(String delimiter, int field);
 
     XStream<String> dos2unix();
+
+    XStream<T> exclude(Predicate<T> predicate);
     
     XStream<String> expand();
     
