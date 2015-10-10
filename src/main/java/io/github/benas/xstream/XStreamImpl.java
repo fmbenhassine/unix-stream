@@ -20,6 +20,11 @@ class XStreamImpl<T> extends AbstractXStream<T> implements XStream<T> {
     }
 
     @Override
+    public XStream<T> concat(Stream<T> stream) {
+        return new XStreamImpl<>(Stream.concat(this.stream, stream));
+    }
+
+    @Override
     public XStream<String> cut(final String delimiter, final int field) {
         return new XStreamImpl<>(Cut.cut(delimiter, field).apply(new Stringify<T>().apply(stream)));
     }
