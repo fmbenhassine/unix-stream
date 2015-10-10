@@ -6,6 +6,11 @@ import java.util.stream.Stream;
 
 import static java.lang.String.valueOf;
 
+/**
+ * Count words or lines in a stream.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ */
 public class WordCount implements Stage<String, String> {
 
     private Option option;
@@ -14,14 +19,30 @@ public class WordCount implements Stage<String, String> {
         this(Option.W);
     }
 
+    /**
+     * Create a new {@link WordCount} instance.
+     *
+     * @param option the option to apply
+     */
     public WordCount(final Option option) {
         this.option = option;
     }
 
+    /**
+     * Create a new {@link WordCount} instance.
+     *
+     * @return a new {@link WordCount} instance.
+     */
     public static WordCount wc() {
         return new WordCount();
     }
 
+    /**
+     * Create a new {@link WordCount} instance.
+     *
+     * @param option the option to apply
+     * @return a new {@link WordCount} instance.
+     */
     public static WordCount wc(final Option option) {
         return new WordCount(option);
     }

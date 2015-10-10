@@ -13,6 +13,13 @@ import java.util.stream.Stream;
 
 import static java.nio.file.Files.lines;
 
+/**
+ * This interface is the main entry point to use XStream.
+ * It provides static methods to read/write streams and to operate on them the unix way.
+ *
+ * @param <T> type of elements in the stream.
+ * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ */
 public interface XStream<T> extends Stream<T> {
 
     /*
@@ -73,7 +80,7 @@ public interface XStream<T> extends Stream<T> {
     /*
      * Static factory methods to create print writers. 
      */
-    
+
     static PrintWriter stdOut() {
         return new PrintWriter(new OutputStreamWriter(System.out), true);
     }
@@ -89,7 +96,7 @@ public interface XStream<T> extends Stream<T> {
     /*
      * XStream methods
      */
-    
+
     XStream<String> compact();
 
     XStream<String> cut(final String delimiter, final int field);
@@ -97,7 +104,7 @@ public interface XStream<T> extends Stream<T> {
     XStream<String> dos2unix();
 
     XStream<T> exclude(final Predicate<T> predicate);
-    
+
     XStream<String> expand();
 
     XStream<String> fold(final int size);
@@ -105,17 +112,17 @@ public interface XStream<T> extends Stream<T> {
     Stream<T> get();
 
     XStream<String> grep(final String pattern);
-    
+
     XStream<T> head();
 
     XStream<T> head(final long size);
-    
+
     XStream<String> lowercase();
 
     XStream<String> nl();
 
     <R> XStream<R> pipe(final Stage<T, R> stage);
-    
+
     XStream<T> reverse();
 
     XStream<T> sort();
@@ -129,7 +136,7 @@ public interface XStream<T> extends Stream<T> {
     XStream<T> tail(final long size);
 
     XStream<String> tr(final String regexp, final String replacement);
-    
+
     XStream<String> trim();
 
     XStream<String> trunc(final int size);

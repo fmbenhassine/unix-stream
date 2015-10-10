@@ -1,17 +1,22 @@
 package io.github.benas.xstream;
 
-import static java.lang.System.in;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.function.Supplier;
 
-public class StandardInputSupplier implements Supplier<String> {
+import static java.lang.System.in;
+
+/**
+ * Supplier that generates an infinite stream from the standard input.
+ *
+ * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ */
+class StandardInputSupplier implements Supplier<String> {
 
     private BufferedReader bufferedReader;
 
-    public StandardInputSupplier() {
+    StandardInputSupplier() {
         bufferedReader = new BufferedReader(new InputStreamReader(in));
     }
 
