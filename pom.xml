@@ -10,7 +10,7 @@
 
     <groupId>io.github.benas</groupId>
     <artifactId>xstream</artifactId>
-    <version>0.1</version>
+    <version>0.2-SNAPSHOT</version>
 
     <name>xstream</name>
     <description>XStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
@@ -24,7 +24,7 @@
         <url>git@github.com:benas/xstream.git</url>
         <connection>scm:git:git@github.com:benas/xstream.git</connection>
         <developerConnection>scm:git:git@github.com:benas/xstream.git</developerConnection>
-        <tag>xstream-0.1</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
