@@ -22,6 +22,7 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input is null.
+     *
      * @param <T> the type of object on which the predicate will be applied.
      * @return an instance of the predicate
      */
@@ -31,6 +32,7 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input String is empty.
+     *
      * @return a new predicate returning true when the input String is empty.
      */
     public static Predicate<String> empty() {
@@ -39,6 +41,8 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input String contains the given pattern.
+     *
+     * @param pattern the pattern to look for in each element
      * @return a new predicate returning true when the input String contains the given pattern.
      */
     public static Predicate<String> contains(final String pattern) {
@@ -48,6 +52,8 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input String starts with the given pattern.
+     *
+     * @param pattern the pattern to look for in each element
      * @return a new predicate returning true when the input String starts with the given pattern.
      */
     public static Predicate<String> startsWith(final String pattern) {
@@ -57,6 +63,8 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input String ends with the given pattern.
+     *
+     * @param pattern the pattern to look for in each element
      * @return a new predicate returning true when the input String ends with the given pattern.
      */
     public static Predicate<String> endsWith(final String pattern) {
@@ -66,6 +74,8 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input String matches the given regexp.
+     *
+     * @param regexp the regular expression to match in each element
      * @return a new predicate returning true when the input String matches the given regexp.
      */
     public static Predicate<String> matches(final String regexp) {
@@ -75,6 +85,7 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input number is even.
+     *
      * @return a new predicate returning true when the input number is even.
      */
     public static Predicate<Number> even() {
@@ -83,6 +94,7 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input number is odd.
+     *
      * @return a new predicate returning true when the input number is odd.
      */
     public static Predicate<Number> odd() {
@@ -91,6 +103,7 @@ public class Predicates {
 
     /**
      * Create a new predicate returning true when the input number is equal to zero.
+     *
      * @return a new predicate returning true when the input number is equal to zero.
      */
     public static Predicate<Number> isZero() {
