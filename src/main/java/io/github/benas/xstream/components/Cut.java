@@ -44,7 +44,10 @@ public class Cut implements Stage<String, String> {
 
     @Override
     public Stream<String> apply(Stream<String> input) {
-        return input.map(s -> s.split(delimiter)[field]);
+        return input.map(s -> {
+            String[] strings = s.split(delimiter);
+            return field <= strings.length - 1 ? strings[field] : "";
+        });
     }
 
 }

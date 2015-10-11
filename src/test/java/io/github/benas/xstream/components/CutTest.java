@@ -1,12 +1,13 @@
 package io.github.benas.xstream.components;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.Before;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CutTest {
 
@@ -20,10 +21,29 @@ public class CutTest {
         cut = Cut.cut(";", 2);
     }
 
-    @org.junit.Test
+    @Test(expected = NullPointerException.class)
+    public void create_whenDelimiterIsNull() {
+        Cut.cut(null, 1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void create_whenFiledIsLessThanOne() {
+        Cut.cut(";", 0);
+    }
+
+    @Test
     public void apply() {
         List<String> strings = cut.apply(stream).collect(Collectors.toList());
-        
-        assertThat(strings).isNotEmpty().isEqualTo(Arrays.asList("b", "d"));
+
+        assertThat(strings).isNotEmpty().hasSize(2).containsExactly("b", "d");
     }
+
+    @Test
+    public void apply_whenFieldIsOutOfRange() {
+        cut = Cut.cut(";", 3);
+        List<String> strings = cut.apply(stream).collect(Collectors.toList());
+
+        assertThat(strings).isNotEmpty().hasSize(2).containsExactly("", "");
+    }
+
 }
