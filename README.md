@@ -4,7 +4,6 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/xstream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|xstream|0.1|)
 [![Build Status](https://travis-ci.org/benas/xstream.svg?branch=master)](https://travis-ci.org/benas/xstream)
-[![Coverage](https://coveralls.io/repos/benas/xstream/badge.svg?style=flat&branch=master&service=github)](https://coveralls.io/github/benas/xstream?branch=master)
 
 XStream (uniX Stream) is an extension of the Java 8 Stream API to process data pipelines the Unix way.
 It provides a set of components that mimic Unix processing commands.
