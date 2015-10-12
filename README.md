@@ -62,7 +62,7 @@ Add the following maven dependency to your project:
 </dependency>
  ```
 
-Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/xstream/0.1/xstream.jar) and add it to your application's classpath.
+Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/xstream/0.1/xstream-0.1.jar) and add it to your application's classpath.
 
 # Components library
 
