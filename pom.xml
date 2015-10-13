@@ -10,7 +10,7 @@
 
     <groupId>io.github.benas</groupId>
     <artifactId>ustream</artifactId>
-    <version>0.2</version>
+    <version>0.3-SNAPSHOT</version>
 
     <name>ustream</name>
     <description>UStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
@@ -24,7 +24,7 @@
         <url>git@github.com:benas/ustream.git</url>
         <connection>scm:git:git@github.com:benas/ustream.git</connection>
         <developerConnection>scm:git:git@github.com:benas/ustream.git</developerConnection>
-        <tag>ustream-0.2</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
