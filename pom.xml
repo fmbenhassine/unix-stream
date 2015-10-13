@@ -10,32 +10,32 @@
     </parent>
 
     <groupId>io.github.benas</groupId>
-    <artifactId>xstream</artifactId>
+    <artifactId>ustream</artifactId>
     <version>0.2-SNAPSHOT</version>
 
-    <name>xstream</name>
-    <description>XStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
-    <url>https://github.com/benas/xstream</url>
+    <name>ustream</name>
+    <description>UStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
+    <url>https://github.com/benas/ustream</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <scm>
-        <url>git@github.com:benas/xstream.git</url>
-        <connection>scm:git:git@github.com:benas/xstream.git</connection>
-        <developerConnection>scm:git:git@github.com:benas/xstream.git</developerConnection>
+        <url>git@github.com:benas/ustream.git</url>
+        <connection>scm:git:git@github.com:benas/ustream.git</connection>
+        <developerConnection>scm:git:git@github.com:benas/ustream.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
         <system>Travis CI</system>
-        <url>https://travis-ci.org/benas/xstream</url>
+        <url>https://travis-ci.org/benas/ustream</url>
     </ciManagement>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/benas/xstream/issues</url>
+        <url>https://github.com/benas/ustream/issues</url>
     </issueManagement>
 
     <developers>

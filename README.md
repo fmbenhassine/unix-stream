@@ -1,12 +1,12 @@
-# What is XStream?
+# What is UStream?
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/xstream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/ustream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/xstream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|xstream|0.1|)
-[![Build Status](https://travis-ci.org/benas/xstream.svg?branch=master)](https://travis-ci.org/benas/xstream)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/ustream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|ustream|0.2|)
+[![Build Status](https://travis-ci.org/benas/ustream.svg?branch=master)](https://travis-ci.org/benas/ustream)
 
-XStream (uniX Stream) is an extension of the Java 8 Stream API to process data pipelines the Unix way.
-It provides a set of components that mimic Unix processing commands.
+UStream (Unix Stream) is an extension of the Java 8 Stream API to process data pipelines the Unix way.
+It provides a set of components that mimic Unix commands (and more).
 
 # Features
 
@@ -18,14 +18,14 @@ It provides a set of components that mimic Unix processing commands.
 
 # How to use it?
 
-You can use XStream in two ways:
+You can use UStream in two ways:
 
 #### 1. Either unixifiy your stream and process it the unix way:
 
 ```java
 Stream<String> stream = Stream.of("foo", "bar", "bar", "baz");
 
-XStream.unixify(stream)
+UStream.unixify(stream)
         .grep("a")
         .sort()
         .uniq()
@@ -42,7 +42,7 @@ XStream.unixify(stream)
 ```java
 // cat input.txt | grep a | sort | uniq | nl > output.txt
 
-XStream.cat("input.txt")
+UStream.cat("input.txt")
         .pipe(grep("a"))
         .pipe(sort())
         .pipe(uniq())
@@ -57,16 +57,16 @@ Add the following maven dependency to your project:
  ```xml
 <dependency>
     <groupId>io.github.benas</groupId>
-    <artifactId>xstream</artifactId>
-    <version>0.1</version>
+    <artifactId>ustream</artifactId>
+    <version>0.2</version>
 </dependency>
  ```
 
-Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/xstream/0.1/xstream-0.1.jar) and add it to your application's classpath.
+Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/ustream/0.2/ustream-0.2.jar) and add it to your application's classpath.
 
 # Components library
 
-XStream provides a toolbox of reusable components that mimic Unix commands (and more).
+UStream provides a toolbox of reusable components that mimic Unix commands (and more).
 Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Mike_Gancarz:_The_UNIX_Philosophy) and are intended to be:
 
 * Small
@@ -76,9 +76,9 @@ Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/U
 
 Here are some of the built-in components:
 
-![](https://github.com/benas/xstream/raw/master/xstream.jpeg)
+![](https://github.com/benas/ustream/raw/master/ustream.jpeg)
 
-You can find a complete reference of components in the [wiki page](https://github.com/benas/xstream/wiki).
+You can find a complete reference of components in the [wiki page](https://github.com/benas/ustream/wiki).
 
 # How to extend it ?
 
@@ -102,7 +102,7 @@ You are welcome to improve existing components or add new ones to make the toolb
 
 # License
 
- XStream is released under the [MIT License](http://opensource.org/licenses/mit-license.php/):
+ UStream is released under the [MIT License](http://opensource.org/licenses/mit-license.php/):
 
  ```
  The MIT License
