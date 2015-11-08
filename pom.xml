@@ -10,7 +10,7 @@
 
     <groupId>io.github.benas</groupId>
     <artifactId>unix-stream</artifactId>
-    <version>0.3</version>
+    <version>0.4-SNAPSHOT</version>
 
     <name>UnixStream</name>
     <description>UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
@@ -24,7 +24,7 @@
         <url>git@github.com:benas/UnixStream.git</url>
         <connection>scm:git:git@github.com:benas/UnixStream.git</connection>
         <developerConnection>scm:git:git@github.com:benas/UnixStream.git</developerConnection>
-        <tag>unix-stream-0.3</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
