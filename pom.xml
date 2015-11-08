@@ -21,10 +21,10 @@
     </properties>
 
     <scm>
-        <url>git@github.com:benas/UnixStream.git</url>
-        <connection>scm:git:git@github.com:benas/UnixStream.git</connection>
-        <developerConnection>scm:git:git@github.com:benas/UnixStream.git</developerConnection>
-        <tag>unix-stream-0.3</tag>
+        <url>git@github.com:benas/unixstream.git</url>
+        <connection>scm:git:git@github.com:benas/unixstream.git</connection>
+        <developerConnection>scm:git:git@github.com:benas/unixstream.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
