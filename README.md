@@ -1,11 +1,11 @@
-# What is UStream?
+# What is UnixStream?
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/ustream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/UnixStream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/ustream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|ustream|0.2|)
-[![Build Status](https://travis-ci.org/benas/ustream.svg?branch=master)](https://travis-ci.org/benas/ustream)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/UnixStream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|unix-stream|0.3|)
+[![Build Status](https://travis-ci.org/benas/UnixStream.svg?branch=master)](https://travis-ci.org/benas/UnixStream)
 
-UStream (Unix Stream) is an extension of the Java 8 Stream API to process data pipelines the Unix way.
+UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way.
 It provides a set of components that mimic Unix commands (and more).
 
 # Features
@@ -18,14 +18,14 @@ It provides a set of components that mimic Unix commands (and more).
 
 # How to use it?
 
-You can use UStream in two ways:
+You can use UnixStream in two ways:
 
 #### 1. Either unixifiy your stream and process it the unix way:
 
 ```java
 Stream<String> stream = Stream.of("foo", "bar", "bar", "baz");
 
-UStream.unixify(stream)
+UnixStream.unixify(stream)
         .grep("a")
         .sort()
         .uniq()
@@ -42,7 +42,7 @@ UStream.unixify(stream)
 ```java
 // cat input.txt | grep a | sort | uniq | nl > output.txt
 
-UStream.cat("input.txt")
+UnixStream.cat("input.txt")
         .pipe(grep("a"))
         .pipe(sort())
         .pipe(uniq())
@@ -57,16 +57,16 @@ Add the following maven dependency to your project:
  ```xml
 <dependency>
     <groupId>io.github.benas</groupId>
-    <artifactId>ustream</artifactId>
-    <version>0.2</version>
+    <artifactId>unix-stream</artifactId>
+    <version>0.3</version>
 </dependency>
  ```
 
-Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/ustream/0.2/ustream-0.2.jar) and add it to your application's classpath.
+Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/unix-stream/0.3/unix-stream-0.3.jar) and add it to your application's classpath.
 
 # Components library
 
-UStream provides a toolbox of reusable components that mimic Unix commands (and more).
+UnixStream provides a toolbox of reusable components that mimic Unix commands (and more).
 Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy#Mike_Gancarz:_The_UNIX_Philosophy) and are intended to be:
 
 * Small
@@ -76,9 +76,9 @@ Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/U
 
 Here are some of the built-in components:
 
-![](https://github.com/benas/ustream/raw/master/ustream.jpeg)
+![](https://github.com/benas/UnixStream/raw/master/unix-stream.jpeg)
 
-You can find a complete reference of components in the [wiki page](https://github.com/benas/ustream/wiki).
+You can find a complete reference of components in the [wiki page](https://github.com/benas/UnixStream/wiki).
 
 # How to extend it ?
 
@@ -102,7 +102,7 @@ You are welcome to improve existing components or add new ones to make the toolb
 
 # License
 
- UStream is released under the [MIT License](http://opensource.org/licenses/mit-license.php/):
+ UnixStream is released under the [MIT License](http://opensource.org/licenses/mit-license.php/):
 
  ```
  The MIT License
