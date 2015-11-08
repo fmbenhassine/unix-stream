@@ -10,7 +10,7 @@
 
     <groupId>io.github.benas</groupId>
     <artifactId>unix-stream</artifactId>
-    <version>0.3</version>
+    <version>0.3-SNAPSHOT</version>
 
     <name>UnixStream</name>
     <description>UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
@@ -21,10 +21,10 @@
     </properties>
 
     <scm>
-        <url>git@github.com:benas/unixstream.git</url>
-        <connection>scm:git:git@github.com:benas/unixstream.git</connection>
-        <developerConnection>scm:git:git@github.com:benas/unixstream.git</developerConnection>
-        <tag>unix-stream-0.3</tag>
+        <url>git@github.com:benas/UnixStream.git</url>
+        <connection>scm:git:git@github.com:benas/UnixStream.git</connection>
+        <developerConnection>scm:git:git@github.com:benas/UnixStream.git</developerConnection>
+        <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
@@ -67,12 +67,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5.2</version>
+                <version>2.5.3</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.18.1</version>
+                <version>2.19</version>
                 <configuration>
                     <includes>
                         <include>**/*Test*.java</include>
