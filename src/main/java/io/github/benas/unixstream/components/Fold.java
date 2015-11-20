@@ -70,7 +70,6 @@ public class Fold implements Stage<String, String> {
                 stringBuilder.append(LINE_SEPARATOR);
             }
         }
-        System.out.println("stringBuilder = " + stringBuilder.toString());
         return stringBuilder.toString();
     }
 
