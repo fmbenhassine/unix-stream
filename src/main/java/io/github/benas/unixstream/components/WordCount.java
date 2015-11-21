@@ -52,7 +52,7 @@ public class WordCount implements Stage<String, String> {
         if (option.equals(Option.L)) {
             return Stream.of(valueOf(input.count()));
         } else {
-            Stream<String> stringStream = input.flatMap(s -> Stream.of(s.split(" ")));
+            Stream<String> stringStream = input.flatMap(s -> Stream.of(s.split(" +")));
             return Stream.of(valueOf(stringStream.count()));
         }
     }
