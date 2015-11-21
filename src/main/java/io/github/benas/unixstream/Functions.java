@@ -1,5 +1,7 @@
 package io.github.benas.unixstream;
 
+import io.github.benas.unixstream.components.Fold;
+
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -88,6 +90,17 @@ public class Functions {
             }
             return stringBuilder.toString();
         };
+    }
+
+    /**
+     * Fold a String with a given width.
+     * Lines will be separated with the default System line separator
+     *
+     * @param width         the fold width
+     * @return a fold function
+     */
+    public static Function<String, String> fold(final int width) {
+        return fold(width, Fold.LINE_SEPARATOR);
     }
 
     /**
