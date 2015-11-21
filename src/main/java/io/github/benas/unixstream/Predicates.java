@@ -44,6 +44,8 @@ public class Predicates {
      * Create a new predicate that excludes elements matching the given predicate from a stream.
      * This is the opposite behavior of {@link Stream#filter(java.util.function.Predicate)}.
      *
+     * @param predicate the predicate to apply
+     * @param <T>       the type of objects the predicate will be applied on
      * @return a new predicate excluding elements matching the given predicate from a stream.
      */
     public static <T> Predicate<T> exclude(final Predicate<T> predicate) {

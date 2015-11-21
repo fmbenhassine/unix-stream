@@ -67,6 +67,8 @@ public class Functions {
     /**
      * Fold a String with a given width.
      *
+     * @param width         the fold width
+     * @param lineSeparator the line separator
      * @return a fold function
      */
     public static Function<String, String> fold(final int width, final String lineSeparator) {
@@ -109,6 +111,7 @@ public class Functions {
     /**
      * Transform an Object to a String by calling {@link Object#toString()}.
      *
+     * @param <T> the type of objects in the stream
      * @return a stringify function
      */
     public static <T> Function<T, String> str() {
@@ -140,6 +143,7 @@ public class Functions {
     /**
      * Truncate a String to a limited size.
      *
+     * @param size the new String size
      * @return a trunc function
      */
     public static Function<String, String> trunc(final int size) {
