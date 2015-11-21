@@ -2,6 +2,7 @@ package io.github.benas.unixstream;
 
 import java.util.Objects;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 /**
  * This class consists of {@code static} factory methods to create commons predicates.
@@ -40,6 +41,17 @@ public class Predicates {
     }
 
     /**
+     * Create a new predicate that excludes elements matching the given predicate from a stream.
+     * This is the opposite behavior of {@link Stream#filter(java.util.function.Predicate)}.
+     *
+     * @return a new predicate excluding elements matching the given predicate from a stream.
+     */
+    public static <T> Predicate<T> exclude(final Predicate<T> predicate) {
+        Objects.requireNonNull(predicate, "The predicate must not be null");
+        return predicate.negate();
+    }
+
+    /**
      * Create a new predicate returning true when the input String contains the given pattern.
      *
      * @param pattern the pattern to look for in each element
@@ -48,6 +60,17 @@ public class Predicates {
     public static Predicate<String> contains(final String pattern) {
         Objects.requireNonNull(pattern, "The pattern must not be null");
         return s -> s.contains(pattern);
+    }
+
+    /**
+     * Create a new predicate returning true when the input String contains the given pattern.
+     *
+     * @param pattern the pattern to look for in each element
+     * @return a new predicate returning true when the input String contains the given pattern.
+     */
+    public static Predicate<String> grep(final String pattern) {
+        Objects.requireNonNull(pattern, "The pattern must not be null");
+        return contains(pattern);
     }
 
     /**

@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Predicates;
 import io.github.benas.unixstream.Stage;
 
 import java.util.Objects;
@@ -36,7 +37,7 @@ public class Grep implements Stage<String, String> {
 
     @Override
     public Stream<String> apply(Stream<String> input) {
-        return input.filter(s -> s.contains(pattern));
+        return input.filter(Predicates.grep(pattern));
     }
     
 }

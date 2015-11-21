@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Predicates;
 import io.github.benas.unixstream.Stage;
 
 import java.util.Objects;
@@ -40,6 +41,6 @@ public class Exclude<T> implements Stage<T, T> {
 
     @Override
     public Stream<T> apply(Stream<T> input) {
-        return input.filter(predicate.negate());
+        return input.filter(Predicates.exclude(predicate));
     }
 }
