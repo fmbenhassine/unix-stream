@@ -2,7 +2,7 @@
 
 [![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/UnixStream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/unix-stream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|unix-stream|0.3|)
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/unix-stream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|unix-stream|0.4|)
 [![Build Status](https://travis-ci.org/benas/UnixStream.svg?branch=master)](https://travis-ci.org/benas/UnixStream)
 
 UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way.
@@ -70,11 +70,11 @@ Add the following maven dependency to your project:
 <dependency>
     <groupId>io.github.benas</groupId>
     <artifactId>unix-stream</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
 </dependency>
  ```
 
-Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/unix-stream/0.3/unix-stream-0.3.jar) and add it to your application's classpath.
+Or [download the jar file](https://oss.sonatype.org/content/groups/public/io/github/benas/unix-stream/0.4/unix-stream-0.4.jar) and add it to your application's classpath.
 
 # Components library
 
