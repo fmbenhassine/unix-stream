@@ -18,7 +18,7 @@ It provides a set of components that mimic Unix commands (and more).
 
 # How to use it?
 
-You can use UnixStream in two ways:
+You can use UnixStream in 3 ways:
 
 #### 1. Either unixifiy your stream and process it the unix way:
 
@@ -37,7 +37,7 @@ UnixStream.unixify(stream)
 // 2 baz
 ```
 
-#### 2. Or write your pipelines as you read them
+#### 2. Or write your pipelines as you read them:
 
 ```java
 // cat input.txt | grep a | sort | uniq | nl > output.txt
@@ -48,6 +48,18 @@ UnixStream.cat("input.txt")
         .pipe(uniq())
         .pipe(nl())
         .to(file("output.txt"));
+```
+
+#### 3. Or use functions and predicates provided by UnixStream with the standard Stream API:
+
+```java
+Stream.of("1,foo", "2,bar")
+        .filter(grep("a"))
+        .map(cut(",", 2))
+        .forEach(System.out::println);
+        
+//prints:
+//bar
 ```
 
 # Where to find it?
