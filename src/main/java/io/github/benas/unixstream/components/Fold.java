@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Functions;
 import io.github.benas.unixstream.Stage;
 
 import java.util.stream.Stream;
@@ -57,20 +58,7 @@ public class Fold implements Stage<String, String> {
 
     @Override
     public Stream<String> apply(Stream<String> input) {
-        return input.map(this::doFold);
-    }
-
-    private String doFold(String s) {
-        StringBuilder stringBuilder = new StringBuilder();
-        int i = 0;
-        int length = s.length();
-        while (i < length && !String.valueOf(s.charAt(i)).equals(LINE_SEPARATOR)) {
-            stringBuilder.append(s.charAt(i));
-            if (++i % width == 0) {
-                stringBuilder.append(LINE_SEPARATOR);
-            }
-        }
-        return stringBuilder.toString();
+        return input.map(Functions.fold(width, LINE_SEPARATOR));
     }
 
 }

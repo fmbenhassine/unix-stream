@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Functions;
 import io.github.benas.unixstream.Stage;
 
 import java.util.stream.Stream;
@@ -28,7 +29,7 @@ public class Compact implements Stage<String, String> {
 
     @Override
     public Stream<String> apply(Stream<String> input) {
-        return input.map(s -> s.replaceAll("\\s", ""));
+        return input.map(Functions.compact());
     }
 
 }

@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Functions;
 import io.github.benas.unixstream.Stage;
 
 import java.util.stream.Stream;
@@ -30,6 +31,6 @@ public class Stringify<T> implements Stage<T, String> {
 
     @Override
     public Stream<String> apply(Stream<T> input) {
-        return input.map(Object::toString);
+        return input.map(Functions.str());
     }
 }

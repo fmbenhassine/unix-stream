@@ -24,7 +24,7 @@ public class NumberLines implements Stage<String, String> {
      *
      * @return a new {@link NumberLines} instance.
      */
-    public static NumberLines numberLines() {
+    public static NumberLines nl() {
         return new NumberLines();
     }
 

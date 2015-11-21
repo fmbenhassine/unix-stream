@@ -16,7 +16,7 @@ public class NumberLinesTest {
     @Before
     public void setUp() {
         stream = Stream.of("a", "b");
-        numberLines = NumberLines.numberLines();
+        numberLines = NumberLines.nl();
     }
 
     @Test

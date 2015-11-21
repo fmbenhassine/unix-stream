@@ -1,11 +1,12 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Functions;
 import io.github.benas.unixstream.Stage;
 
 import java.util.stream.Stream;
 
 /**
- * Replace tabs with spaces in a String.
+ * Replace tabs with white spaces in a String.
  *
  * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
  */
@@ -28,7 +29,7 @@ public class Expand implements Stage<String, String> {
 
     @Override
     public Stream<String> apply(Stream<String> input) {
-        return input.map(s -> s.replaceAll("\t", " "));
+        return input.map(Functions.expand());
     }
 
 }

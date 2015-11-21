@@ -76,7 +76,7 @@ class UnixStreamImpl<T> extends AbstractUnixStream<T> implements UnixStream<T> {
     
     @Override
     public UnixStream<String> nl() {
-        return new UnixStreamImpl<>(NumberLines.numberLines().apply(new Stringify<T>().apply(stream)));
+        return new UnixStreamImpl<>(NumberLines.nl().apply(new Stringify<T>().apply(stream)));
     }
 
     @Override

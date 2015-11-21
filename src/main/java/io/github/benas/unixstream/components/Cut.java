@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Functions;
 import io.github.benas.unixstream.Stage;
 
 import java.util.Objects;
@@ -28,7 +29,7 @@ public class Cut implements Stage<String, String> {
             throw new IllegalArgumentException("Field must be >= 1");
         }
         this.delimiter = delimiter;
-        this.field = field - 1;
+        this.field = field;
     }
 
     /**
@@ -44,10 +45,7 @@ public class Cut implements Stage<String, String> {
 
     @Override
     public Stream<String> apply(Stream<String> input) {
-        return input.map(s -> {
-            String[] strings = s.split(delimiter);
-            return field <= strings.length - 1 ? strings[field] : "";
-        });
+        return input.map(Functions.cut(delimiter, field));
     }
 
 }
