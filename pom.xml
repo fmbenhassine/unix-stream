@@ -14,27 +14,27 @@
 
     <name>UnixStream</name>
     <description>UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way</description>
-    <url>https://github.com/benas/UnixStream</url>
+    <url>https://github.com/benas/unix-stream</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <scm>
-        <url>git@github.com:benas/UnixStream.git</url>
-        <connection>scm:git:git@github.com:benas/UnixStream.git</connection>
-        <developerConnection>scm:git:git@github.com:benas/UnixStream.git</developerConnection>
+        <url>git@github.com:benas/unix-stream.git</url>
+        <connection>scm:git:git@github.com:benas/unix-stream.git</connection>
+        <developerConnection>scm:git:git@github.com:benas/unix-stream.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
     <ciManagement>
         <system>Travis CI</system>
-        <url>https://travis-ci.org/benas/UnixStream</url>
+        <url>https://travis-ci.org/benas/unix-stream</url>
     </ciManagement>
 
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/benas/UnixStream/issues</url>
+        <url>https://github.com/benas/unix-stream/issues</url>
     </issueManagement>
 
     <developers>
