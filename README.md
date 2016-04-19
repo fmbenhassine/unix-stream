@@ -1,9 +1,9 @@
 # What is UnixStream?
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/UnixStream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/unix-stream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/unix-stream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|unix-stream|0.4|)
-[![Build Status](https://travis-ci.org/benas/UnixStream.svg?branch=master)](https://travis-ci.org/benas/UnixStream)
+[![Build Status](https://travis-ci.org/benas/unix-stream.svg?branch=master)](https://travis-ci.org/benas/unix-stream)
 
 UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way.
 It provides a set of components that mimic Unix commands (and more).
@@ -88,9 +88,9 @@ Components are inspired by the [Unix philosophy](https://en.wikipedia.org/wiki/U
 
 Here are some of the built-in components:
 
-![](https://github.com/benas/UnixStream/raw/master/unix-stream.jpeg)
+![](https://github.com/benas/unix-stream/raw/master/unix-stream.jpeg)
 
-You can find a complete reference of components in the [wiki page](https://github.com/benas/UnixStream/wiki).
+You can find a complete reference of components in the [wiki page](https://github.com/benas/unix-stream/wiki).
 
 # How to extend it ?
 
