@@ -9,7 +9,7 @@ import static java.lang.String.valueOf;
 /**
  * Count words or lines in a stream.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class WordCount implements Stage<String, String> {
 

@@ -8,7 +8,7 @@ import java.util.function.Function;
 /**
  * This class consists of {@code static} factory methods to create commons functions.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Functions {
 

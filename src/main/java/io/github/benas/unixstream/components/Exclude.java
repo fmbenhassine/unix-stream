@@ -12,7 +12,7 @@ import java.util.stream.Stream;
  * This is the opposite behavior of {@link Stream#filter(java.util.function.Predicate)}.
  *
  * @param <T> the type of elements in the input stream
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Exclude<T> implements Stage<T, T> {
 

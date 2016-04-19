@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Fold Strings with a given width in a stream of Strings.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Fold implements Stage<String, String> {
 

@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Remove all white spaces from a String.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Compact implements Stage<String, String> {
 

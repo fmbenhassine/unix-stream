@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 /**
  * This class consists of {@code static} factory methods to create commons predicates.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Predicates {
 

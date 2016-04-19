@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 /**
  * Keep elements containing a given pattern in a stream of Strings.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Grep implements Stage<String, String> {
 

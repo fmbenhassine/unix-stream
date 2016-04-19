@@ -11,7 +11,7 @@ import java.util.stream.Stream;
  * This is an alias of {@link Stream#sorted()}.
  *
  * @param <T> the type of elements in the input stream
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Sort<T> implements Stage<T, T> {
 

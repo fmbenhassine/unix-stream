@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * This is an alias of {@link Stream#distinct()}.
  *
  * @param <T> the type of elements in the input stream
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Uniq<T> implements Stage<T, T> {
 

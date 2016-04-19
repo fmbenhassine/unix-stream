@@ -14,7 +14,7 @@ import java.util.stream.StreamSupport;
  * Reverse elements in a stream.
  *
  * @param <T> the type of elements in the stream.
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Reverse<T> implements Stage<T, T> {
 

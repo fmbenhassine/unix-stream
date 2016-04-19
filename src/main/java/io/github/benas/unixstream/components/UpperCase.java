@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Transform a String to upper case.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class UpperCase implements Stage<String, String> {
 

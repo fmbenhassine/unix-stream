@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * Transform a stream of objects into a stream of Strings by calling {@link Object#toString()} on each object.
  *
  * @param <T> the type of elements in the stream.
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Stringify<T> implements Stage<T, String> {
 

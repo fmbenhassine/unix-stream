@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Truncate a String to a limited size.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Truncate implements Stage<String, String> {
 

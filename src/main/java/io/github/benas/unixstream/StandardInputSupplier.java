@@ -10,7 +10,7 @@ import static java.lang.System.in;
 /**
  * Supplier that generates an infinite stream from the standard input.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 class StandardInputSupplier implements Supplier<String> {
 

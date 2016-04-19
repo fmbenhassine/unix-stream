@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 /**
  * Print line numbers of a stream of Strings.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class NumberLines implements Stage<String, String> {
 

@@ -18,7 +18,7 @@ import static java.nio.file.Files.lines;
  * It provides static methods to read/write streams and to operate on them the unix way.
  *
  * @param <T> type of elements in the stream.
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public interface UnixStream<T> extends Stream<T> {
 

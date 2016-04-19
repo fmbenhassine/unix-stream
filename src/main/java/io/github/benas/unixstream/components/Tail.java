@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * This is the opposite behavior of {@link Head}.
  *
  * @param <T> the type of elements in the stream
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Tail<T> implements Stage<T, T> {
 

@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * Replace spaces with tabs in a String.
  * This is the opposite behavior of {@link Expand}.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class UnExpand implements Stage<String, String> {
 

@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Concat two streams.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Concat<T> implements Stage<T, T> {
 

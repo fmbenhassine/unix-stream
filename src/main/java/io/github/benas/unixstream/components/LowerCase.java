@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Transform a String to lower case.
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class LowerCase implements Stage<String, String> {
 

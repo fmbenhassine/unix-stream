@@ -8,7 +8,7 @@ import java.util.stream.Stream;
  *
  * @param <I> the type of input elements
  * @param <O> the type of output elements
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public interface Stage<I, O> {
 

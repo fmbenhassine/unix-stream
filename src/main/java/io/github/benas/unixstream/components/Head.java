@@ -9,7 +9,7 @@ import java.util.stream.Stream;
  * This is an alias for {@link Stream#limit(long)}.
  *
  * @param <T> the type of elements in the stream
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Head<T> implements Stage<T, T> {
 

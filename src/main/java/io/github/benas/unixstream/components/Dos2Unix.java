@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 /**
  * Replace Windows line separators (CRLF) by Unix line separators (LF).
  *
- * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
+ * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
 public class Dos2Unix implements Stage<String, String> {
 
