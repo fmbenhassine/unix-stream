@@ -10,7 +10,11 @@ import java.util.function.Function;
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
-public class Functions {
+public final class Functions {
+
+    private Functions() throws InstantiationException {
+        throw new InstantiationException("This class is not created for instantiation");
+    }
 
     /**
      * Compact a string by removing all white spaces.

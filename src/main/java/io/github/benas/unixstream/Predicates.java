@@ -9,7 +9,11 @@ import java.util.stream.Stream;
  *
  * @author Mahmoud Ben Hassine (mahmoud.benhassine@icloud.com)
  */
-public class Predicates {
+public final class Predicates {
+
+    private Predicates() throws InstantiationException {
+        throw new InstantiationException("This class is not created for instantiation");
+    }
 
     /**
      * Create a new predicate returning true when the input is not null.
