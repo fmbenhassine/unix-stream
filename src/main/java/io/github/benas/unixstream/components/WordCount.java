@@ -15,6 +15,9 @@ public class WordCount implements Stage<String, String> {
 
     private Option option;
 
+    /**
+     * Create a new {@link WordCount} instance with default option to {@link Option#W}.
+     */
     public WordCount() {
         this(Option.W);
     }
@@ -57,6 +60,9 @@ public class WordCount implements Stage<String, String> {
         }
     }
 
+    /**
+     * Options for {@link WordCount}.
+     */
     public enum Option {
         /**
          * Mimics wc -w
