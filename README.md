@@ -4,6 +4,7 @@
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/unix-stream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|unix-stream|0.4|)
 [![Build Status](https://travis-ci.org/benas/unix-stream.svg?branch=master)](https://travis-ci.org/benas/unix-stream)
+[![Coverage Status](https://coveralls.io/repos/github/benas/unix-stream/badge.svg?branch=master)](https://coveralls.io/github/benas/unix-stream?branch=master)
 
 UnixStream is an extension of the Java 8 Stream API to process data pipelines the Unix way.
 It provides a set of components that mimic Unix commands (and more).
