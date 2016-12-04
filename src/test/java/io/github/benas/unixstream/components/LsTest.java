@@ -26,4 +26,11 @@ public class LsTest {
                 Paths.get("unix-stream.jpeg")
         );
     }
+
+    @Test
+    public void ls_directory() throws IOException {
+        UnixStream<Path> stream = UnixStream.ls("src/test/resources");
+
+        assertThat(stream).contains(Paths.get("src/test/resources","input.txt"));
+    }
 }

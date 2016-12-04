@@ -26,4 +26,11 @@ public class FindTest {
         assertThat(stream).isEmpty();
     }
 
+    @Test
+    public void findWithStringDirectory_whenFilesExist() throws Exception {
+        UnixStream<Path> stream = UnixStream.find(TEST_RESOURCES_DIRECTORY, "*.txt");
+
+        assertThat(stream).containsExactly(Paths.get(TEST_RESOURCES_DIRECTORY, "input.txt"));
+    }
+
 }

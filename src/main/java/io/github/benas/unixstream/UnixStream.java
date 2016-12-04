@@ -143,6 +143,17 @@ public interface UnixStream<T> extends Stream<T> {
     }
 
     /**
+     * Create an UnixStream with file names of the given directory.
+     *
+     * @param directory the directory from which to list files
+     * @return an UnixStream with file names of the given directory.
+     * @throws IOException thrown if an error occurs during reading the directory
+     */
+    static UnixStream<Path> ls(final String directory) throws IOException {
+        return ls(Paths.get(directory));
+    }
+
+    /**
      * Create a new UnixStream with the absolute path of the current directory.
      *
      * @return a new UnixStream with the absolute path of the current directory.
@@ -175,6 +186,18 @@ public interface UnixStream<T> extends Stream<T> {
         return new UnixStreamImpl<>(walk(directory)
                 .filter(path -> !isDirectory(path))
                 .filter(path -> pathMatcher.matches(path.getFileName())));
+    }
+
+    /**
+     * Find files by name (recursively) in a given directory.
+     *
+     * @param directory the root directory
+     * @param pattern   the file name pattern with <a href="https://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#glob">glob syntax</a>.
+     * @return a new UnixStream with found files
+     * @throws IOException thrown if an error occurs during reading the file
+     */
+    static UnixStream<Path> find(final String directory, final String pattern) throws IOException {
+        return find(Paths.get(directory), pattern);
     }
 
     /**
