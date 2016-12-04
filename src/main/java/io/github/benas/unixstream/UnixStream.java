@@ -151,6 +151,14 @@ public interface UnixStream<T> extends Stream<T> {
         return new UnixStreamImpl<>(Stream.of(Paths.get("").toAbsolutePath()));
     }
 
+    /**
+     * Create a new UnixStream with the current user.
+     *
+     * @return a new UnixStream with the current user.
+     */
+    static UnixStream<String> whoami() {
+        return new UnixStreamImpl<>(Stream.of(System.getProperty("user.name")));
+    }
 
     /**
      * Find files by name (recursively) in a given directory.
