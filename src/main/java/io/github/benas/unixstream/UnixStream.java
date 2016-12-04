@@ -136,21 +136,17 @@ public interface UnixStream<T> extends Stream<T> {
      * Find files by name (recursively) in a given directory.
      *
      * @param directory the root directory
-     * @param pattern the file name pattern with <a href="https://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#glob">glob syntax</a>.
+     * @param pattern   the file name pattern with <a href="https://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#glob">glob syntax</a>.
      * @return a new UnixStream with found files
+     * @throws IOException thrown if an error occurs during reading the file
      */
-    static UnixStream<Path> find(final Path directory, final String pattern) {
+    static UnixStream<Path> find(final Path directory, final String pattern) throws IOException {
         Objects.requireNonNull(directory, "The root directory must not be null");
         Objects.requireNonNull(pattern, "The file pattern must not be null");
         PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:" + pattern);
-        try {
-            return new UnixStreamImpl<>(walk(directory)
-                    .filter(path -> !isDirectory(path))
-                    .filter(path -> pathMatcher.matches(path.getFileName())));
-
-        } catch (IOException e) {
-            throw new RuntimeException("Unable to find files in directory " + directory);
-        }
+        return new UnixStreamImpl<>(walk(directory)
+                .filter(path -> !isDirectory(path))
+                .filter(path -> pathMatcher.matches(path.getFileName())));
     }
 
     /**
