@@ -5,7 +5,9 @@ import io.github.benas.unixstream.components.WordCount;
 import java.io.*;
 import java.nio.file.*;
 import java.time.LocalDate;
+import java.time.temporal.WeekFields;
 import java.util.Comparator;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -81,6 +83,18 @@ public interface UnixStream<T> extends Stream<T> {
      */
     static UnixStream<String> date() {
         return new UnixStreamImpl<>(Stream.of(LocalDate.now().toString()));
+    }
+
+    /**
+     * Create a new UnixStream with the current week.
+     *
+     * @return a new UnixStream with the current week.
+     */
+    static UnixStream<String> week() {
+        LocalDate now = LocalDate.now();
+        WeekFields weekFields = WeekFields.of(Locale.getDefault());
+        int weekNumber = now.get(weekFields.weekOfWeekBasedYear());
+        return new UnixStreamImpl<>(Stream.of(String.valueOf(weekNumber)));
     }
 
     /**
