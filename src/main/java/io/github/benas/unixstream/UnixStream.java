@@ -472,4 +472,16 @@ public interface UnixStream<T> extends Stream<T> {
      */
     void to(final PrintWriter printWriter) throws IOException;
 
+    /*
+     * Miscellaneous methods
+     */
+
+    static void rm(final Path path) {
+        try {
+            Files.delete(path);
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to delete file " + path.getFileName());
+        }
+    }
+
 }
