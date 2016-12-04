@@ -4,7 +4,6 @@ import io.github.benas.unixstream.components.WordCount;
 
 import java.io.*;
 import java.nio.file.*;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.Objects;
