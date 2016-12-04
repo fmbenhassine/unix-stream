@@ -4,8 +4,8 @@ import io.github.benas.unixstream.components.WordCount;
 
 import java.io.*;
 import java.nio.file.*;
+import java.time.LocalDate;
 import java.util.Comparator;
-import java.util.Date;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
@@ -80,7 +80,7 @@ public interface UnixStream<T> extends Stream<T> {
      * @return a new UnixStream with the current date.
      */
     static UnixStream<String> date() {
-        return new UnixStreamImpl<>(Stream.of(new Date().toString()));
+        return new UnixStreamImpl<>(Stream.of(LocalDate.now().toString()));
     }
 
     /**
