@@ -3,7 +3,7 @@ package io.github.benas.unixstream;
 import io.github.benas.unixstream.components.WordCount;
 
 import java.io.*;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Date;
@@ -11,7 +11,9 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import static java.nio.file.Files.isDirectory;
 import static java.nio.file.Files.lines;
+import static java.nio.file.Files.walk;
 
 /**
  * This interface is the main entry point to use UnixStream.
@@ -127,6 +129,28 @@ public interface UnixStream<T> extends Stream<T> {
      */
     static UnixStream<String> pwd() {
         return new UnixStreamImpl<>(Stream.of(Paths.get("").toFile().getAbsolutePath()));
+    }
+
+
+    /**
+     * Find files by name (recursively) in a given directory.
+     *
+     * @param directory the root directory
+     * @param pattern the file name pattern with <a href="https://docs.oracle.com/javase/tutorial/essential/io/fileOps.html#glob">glob syntax</a>.
+     * @return a new UnixStream with found files
+     */
+    static UnixStream<Path> find(final Path directory, final String pattern) {
+        Objects.requireNonNull(directory, "The root directory must not be null");
+        Objects.requireNonNull(pattern, "The file pattern must not be null");
+        PathMatcher pathMatcher = FileSystems.getDefault().getPathMatcher("glob:" + pattern);
+        try {
+            return new UnixStreamImpl<>(walk(directory)
+                    .filter(path -> !isDirectory(path))
+                    .filter(path -> pathMatcher.matches(path.getFileName())));
+
+        } catch (IOException e) {
+            throw new RuntimeException("Unable to find files in directory " + directory);
+        }
     }
 
     /**
