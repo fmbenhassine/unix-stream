@@ -46,8 +46,19 @@ public interface UnixStream<T> extends Stream<T> {
      * @throws IOException thrown if an error occurs during reading the file
      */
     static UnixStream<String> cat(final String filePath) throws IOException {
+        return cat(Paths.get(filePath));
+    }
+
+    /**
+     * Create a new UnixStream of lines of the given file.
+     *
+     * @param filePath the absolute file path
+     * @return a new UnixStream of lines of the given file.
+     * @throws IOException thrown if an error occurs during reading the file
+     */
+    static UnixStream<String> cat(final Path filePath) throws IOException {
         Objects.requireNonNull(filePath, "The file path must not be null");
-        return new UnixStreamImpl<>(lines(Paths.get(filePath)));
+        return new UnixStreamImpl<>(lines(filePath));
     }
 
     /**
