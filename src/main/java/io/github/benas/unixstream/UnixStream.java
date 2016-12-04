@@ -113,8 +113,8 @@ public interface UnixStream<T> extends Stream<T> {
      * @return an UnixStream with file names of the current directory.
      * @throws IOException thrown if an error occurs during reading the current directory
      */
-    static UnixStream<String> ls() throws IOException {
-        return ls(Paths.get("").toFile().getAbsolutePath());
+    static UnixStream<Path> ls() throws IOException {
+        return ls(Paths.get(""));
     }
 
     /**
@@ -124,13 +124,9 @@ public interface UnixStream<T> extends Stream<T> {
      * @return an UnixStream with file names of the given directory.
      * @throws IOException thrown if an error occurs during reading the directory
      */
-    static UnixStream<String> ls(final String directory) throws IOException {
+    static UnixStream<Path> ls(final Path directory) throws IOException {
         Objects.requireNonNull(directory, "The directory must not be null");
-        File[] files = new File(directory).listFiles();
-        if (files != null) {
-            return new UnixStreamImpl<>(Arrays.stream(files).map(File::getName));
-        }
-        return new UnixStreamImpl<>(Stream.empty());
+        return new UnixStreamImpl<>(Files.list(directory));
     }
 
     /**
@@ -138,8 +134,8 @@ public interface UnixStream<T> extends Stream<T> {
      *
      * @return a new UnixStream with the absolute path of the current directory.
      */
-    static UnixStream<String> pwd() {
-        return new UnixStreamImpl<>(Stream.of(Paths.get("").toFile().getAbsolutePath()));
+    static UnixStream<Path> pwd() {
+        return new UnixStreamImpl<>(Stream.of(Paths.get("")));
     }
 
 
