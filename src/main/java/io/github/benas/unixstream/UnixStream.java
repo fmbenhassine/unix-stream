@@ -97,7 +97,7 @@ public interface UnixStream<T> extends Stream<T> {
     }
 
     /**
-     * Create an UnixStream with file names of a the current directory.
+     * Create an UnixStream with file names of the current directory.
      *
      * @return an UnixStream with file names of the current directory.
      * @throws IOException thrown if an error occurs during reading the current directory
@@ -154,7 +154,7 @@ public interface UnixStream<T> extends Stream<T> {
     }
 
     /**
-     * Create a new UnixStream fro the given stream.
+     * Create a new UnixStream from the given stream.
      *
      * @param stream the input stream
      * @param <T>    the type of elements in the stream
@@ -313,7 +313,7 @@ public interface UnixStream<T> extends Stream<T> {
     /**
      * Reverse elements in the current stream.
      *
-     * @return a new UnixStream
+     * @return a new UnixStream with elements in reverse order
      */
     UnixStream<T> reverse();
 
