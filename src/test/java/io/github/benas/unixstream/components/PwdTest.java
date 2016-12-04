@@ -18,8 +18,7 @@ public class PwdTest {
 
         List<Path> paths = stream.collect(Collectors.toList());
 
-        // TODO toAbsolutePath should not be be called by the client
-        assertThat(paths.get(0).toAbsolutePath().toString()).endsWith("unix-stream");
+        assertThat(paths.get(0).toString()).endsWith("unix-stream");
     }
 
 }

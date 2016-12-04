@@ -134,7 +134,7 @@ public interface UnixStream<T> extends Stream<T> {
      * @return a new UnixStream with the absolute path of the current directory.
      */
     static UnixStream<Path> pwd() {
-        return new UnixStreamImpl<>(Stream.of(Paths.get("")));
+        return new UnixStreamImpl<>(Stream.of(Paths.get("").toAbsolutePath()));
     }
 
 
