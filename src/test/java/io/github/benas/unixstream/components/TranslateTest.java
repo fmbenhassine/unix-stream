@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -26,5 +27,12 @@ public class TranslateTest {
         List<String> strings = translate.apply(stream).collect(Collectors.toList());
 
         assertThat(strings).isNotEmpty().hasSize(2).containsExactly("b", "b");
+    }
+
+    @Test
+    public void tr() throws Exception {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).tr("a", "b");
+
+        assertThat(unixStream).containsExactly("b", "b");
     }
 }

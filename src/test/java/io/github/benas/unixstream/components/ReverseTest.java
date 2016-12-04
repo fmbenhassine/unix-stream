@@ -1,11 +1,14 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReverseTest {
 
@@ -23,6 +26,13 @@ public class ReverseTest {
     public void apply() {
         List<String> strings = reverse.apply(stream).collect(Collectors.toList());
 
-        Assertions.assertThat(strings).isNotEmpty().hasSize(3).containsExactly("c", "b", "a");
+        assertThat(strings).containsExactly("c", "b", "a");
+    }
+
+    @Test
+    public void reverse() throws Exception {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).reverse();
+
+        assertThat(unixStream).containsExactly("c", "b", "a");
     }
 }

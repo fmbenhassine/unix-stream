@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,7 +36,7 @@ public class CutTest {
     public void apply() {
         List<String> strings = cut.apply(stream).collect(Collectors.toList());
 
-        assertThat(strings).isNotEmpty().hasSize(2).containsExactly("b", "d");
+        assertThat(strings).containsExactly("b", "d");
     }
 
     @Test
@@ -43,7 +44,13 @@ public class CutTest {
         cut = Cut.cut(";", 3);
         List<String> strings = cut.apply(stream).collect(Collectors.toList());
 
-        assertThat(strings).isNotEmpty().hasSize(2).containsExactly("", "");
+        assertThat(strings).containsExactly("", "");
     }
 
+    @Test
+    public void cut() throws Exception {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).cut(";", 2);
+        
+        assertThat(unixStream).containsExactly("b", "d");
+    }
 }

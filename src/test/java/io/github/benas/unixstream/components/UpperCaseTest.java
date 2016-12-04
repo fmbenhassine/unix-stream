@@ -1,11 +1,14 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class UpperCaseTest {
 
@@ -23,6 +26,13 @@ public class UpperCaseTest {
     public void apply() {
         List<String> strings = upperCase.apply(stream).collect(Collectors.toList());
 
-        Assertions.assertThat(strings).isNotEmpty().hasSize(2).containsExactly("A", "B");
+        assertThat(strings).containsExactly("A", "B");
+    }
+
+    @Test
+    public void uppercase() {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).uppercase();
+
+        assertThat(unixStream).containsExactly("A", "B");
     }
 }

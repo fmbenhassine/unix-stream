@@ -1,12 +1,14 @@
 package io.github.benas.unixstream.components;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import io.github.benas.unixstream.UnixStream;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.Before;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CompactTest {
 
@@ -23,7 +25,14 @@ public class CompactTest {
     @org.junit.Test
     public void apply() {
         List<String> strings = compact.apply(stream).collect(Collectors.toList());
-        
-        assertThat(strings).isNotEmpty().isEqualTo(Arrays.asList("ab", "cd"));
+
+        assertThat(strings).containsExactly("ab", "cd");
+    }
+
+    @Test
+    public void compact() throws Exception {
+        UnixStream<String> unixStream = UnixStream.from(Stream.of(" f o o ")).compact();
+
+        assertThat(unixStream).containsExactly("foo");
     }
 }

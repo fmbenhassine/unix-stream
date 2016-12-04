@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -22,9 +23,29 @@ public class ConcatTest {
     }
 
     @Test
-    public void testApply() throws Exception {
+    public void apply() throws Exception {
         List<String> strings = concat.apply(stream).collect(Collectors.toList());
 
-        assertThat(strings).isNotEmpty().hasSize(4).containsExactly("a", "b", "c", "d");
+        assertThat(strings).containsExactly("a", "b", "c", "d");
+    }
+
+    @Test
+    public void concatWithAnotherStream() throws Exception {
+        Stream<String> stream1 = Stream.of("foo");
+        Stream<String> stream2 = Stream.of("bar");
+
+        UnixStream<String> stream = UnixStream.unixify(stream1).concat(stream2);
+
+        assertThat(stream).containsExactly("foo", "bar");
+    }
+
+    @Test
+    public void concatTwoStreams() throws Exception {
+        Stream<String> stream1 = Stream.of("foo");
+        Stream<String> stream2 = Stream.of("bar");
+
+        UnixStream<String> stream = UnixStream.concat(stream1, stream2);
+
+        assertThat(stream).containsExactly("foo", "bar");
     }
 }

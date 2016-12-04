@@ -1,5 +1,7 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.Predicates;
+import io.github.benas.unixstream.UnixStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,5 +29,12 @@ public class ExcludeTest {
         List<String> strings = exclude.apply(stream).collect(Collectors.toList());
 
         assertThat(strings).isNotEmpty().hasSize(1).containsExactly("bc");
+    }
+
+    @Test
+    public void exclude() throws Exception {
+        UnixStream<String> unixStream = UnixStream.from(stream).exclude(Predicates.contains("a"));
+
+        assertThat(unixStream).containsExactly("bc");
     }
 }

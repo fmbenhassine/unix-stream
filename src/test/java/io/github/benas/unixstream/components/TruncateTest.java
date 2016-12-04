@@ -1,5 +1,6 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,6 +26,13 @@ public class TruncateTest {
     public void apply() {
         List<String> strings = truncate.apply(stream).collect(Collectors.toList());
 
-        assertThat(strings).isNotEmpty().hasSize(2).containsExactly("ab", "ef");
+        assertThat(strings).containsExactly("ab", "ef");
+    }
+
+    @Test
+    public void trunc() {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).trunc(2);
+
+        assertThat(unixStream).containsExactly("ab", "ef");
     }
 }

@@ -1,12 +1,14 @@
 package io.github.benas.unixstream.components;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import io.github.benas.unixstream.UnixStream;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class Dos2UnixTest {
 
@@ -24,6 +26,13 @@ public class Dos2UnixTest {
     public void apply() {
         List<String> strings = dos2Unix.apply(stream).collect(Collectors.toList());
 
-        assertThat(strings).isNotEmpty().hasSize(2).containsExactly("a\n", "b\nc\n");
+        assertThat(strings).containsExactly("a\n", "b\nc\n");
+    }
+
+    @Test
+    public void dos2unix() throws Exception {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).dos2unix();
+
+        assertThat(unixStream).containsExactly("a\n", "b\nc\n");
     }
 }

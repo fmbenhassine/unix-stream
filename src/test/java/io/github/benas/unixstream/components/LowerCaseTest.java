@@ -1,11 +1,14 @@
 package io.github.benas.unixstream.components;
 
+import io.github.benas.unixstream.UnixStream;
+import org.junit.Before;
+import org.junit.Test;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import org.assertj.core.api.Assertions;
-import org.junit.Before;
-import org.junit.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class LowerCaseTest {
 
@@ -23,6 +26,13 @@ public class LowerCaseTest {
     public void apply() {
         List<String> strings = lowerCase.apply(stream).collect(Collectors.toList());
 
-        Assertions.assertThat(strings).isNotEmpty().hasSize(2).containsExactly("a", "b");
+        assertThat(strings).containsExactly("a", "b");
+    }
+
+    @Test
+    public void lowercase() throws Exception {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).lowercase();
+
+        assertThat(unixStream).containsExactly("a", "b");
     }
 }

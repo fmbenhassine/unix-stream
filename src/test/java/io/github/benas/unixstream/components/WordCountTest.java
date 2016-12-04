@@ -1,6 +1,6 @@
 package io.github.benas.unixstream.components;
 
-import org.assertj.core.api.Assertions;
+import io.github.benas.unixstream.UnixStream;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static io.github.benas.unixstream.components.WordCount.Option.L;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class WordCountTest {
 
@@ -27,7 +28,7 @@ public class WordCountTest {
 
         List<String> strings = wc.apply(stream).collect(Collectors.toList());
 
-        Assertions.assertThat(strings).isNotEmpty().hasSize(1).containsExactly("5");
+        assertThat(strings).containsExactly("5");
     }
 
     @Test
@@ -36,6 +37,13 @@ public class WordCountTest {
 
         List<String> strings = wc.apply(stream).collect(Collectors.toList());
 
-        Assertions.assertThat(strings).isNotEmpty().hasSize(1).containsExactly("2");
+        assertThat(strings).containsExactly("2");
+    }
+
+    @Test
+    public void wc() throws Exception {
+        UnixStream<String> unixStream = UnixStream.unixify(stream).wc();
+
+        assertThat(unixStream).containsExactly("2");
     }
 }

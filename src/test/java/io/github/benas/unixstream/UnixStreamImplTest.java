@@ -62,4 +62,8 @@ public class UnixStreamImplTest {
         assertThat(items).isNotNull().isNotEmpty().hasSize(2).containsExactly("name", "bar");
     }
 
+    @Test
+    public void getShouldReturnTheOriginalStream() throws Exception {
+        assertThat(UnixStream.unixify(stream).get()).isEqualTo(stream);
+    }
 }
