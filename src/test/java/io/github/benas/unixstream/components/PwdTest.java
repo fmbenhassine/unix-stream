@@ -18,7 +18,7 @@ public class PwdTest {
 
         List<Path> paths = stream.collect(Collectors.toList());
 
-        assertThat(paths.get(0).toString()).endsWith("unix-stream");
+        assertThat(paths.get(0).toString()).contains("unix-stream");
     }
 
 }
