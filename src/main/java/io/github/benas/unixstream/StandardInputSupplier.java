@@ -2,10 +2,7 @@ package io.github.benas.unixstream;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.function.Supplier;
-
-import static java.lang.System.in;
 
 /**
  * Supplier that generates an infinite stream from the standard input.
@@ -16,8 +13,8 @@ class StandardInputSupplier implements Supplier<String> {
 
     private BufferedReader bufferedReader;
 
-    StandardInputSupplier() {
-        bufferedReader = new BufferedReader(new InputStreamReader(in));
+    StandardInputSupplier(BufferedReader bufferedReader) {
+        this.bufferedReader = bufferedReader;
     }
 
     @Override

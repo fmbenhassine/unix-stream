@@ -12,6 +12,7 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.stream.Stream;
 
+import static java.lang.System.in;
 import static java.nio.file.Files.isDirectory;
 import static java.nio.file.Files.lines;
 import static java.nio.file.Files.walk;
@@ -36,7 +37,7 @@ public interface UnixStream<T> extends Stream<T> {
      * @throws IOException thrown if an error occurs during reading the standard input
      */
     static UnixStream<String> cat() throws IOException {
-        return new UnixStreamImpl<>(Stream.generate(new StandardInputSupplier()));
+        return new UnixStreamImpl<>(Stream.generate(new StandardInputSupplier(new BufferedReader(new InputStreamReader(in)))));
     }
 
     /**
