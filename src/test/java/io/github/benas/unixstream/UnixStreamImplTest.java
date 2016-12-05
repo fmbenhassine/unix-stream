@@ -21,9 +21,48 @@ public class UnixStreamImplTest {
 
     private Stream<String> stream;
 
+    private UnixStream<String> unixStream;
+
     @Before
     public void setUp() {
         stream = Stream.of("id,name", "1,foo", "2,bar");
+    }
+
+    @Test
+    public void compact() throws Exception {
+        stream = Stream.of(" f o o       ");
+        unixStream = new UnixStreamImpl<>(stream);
+
+        assertThat(unixStream.compact()).containsExactly("foo");
+    }
+
+    @Test
+    public void concat() throws Exception {
+        stream = Stream.of("foo");
+        unixStream = new UnixStreamImpl<>(stream);
+
+        assertThat(unixStream.concat(Stream.of("bar"))).containsExactly("foo", "bar");
+    }
+
+    @Test
+    public void cut() throws Exception {
+        stream = Stream.of("1;foo");
+        unixStream = new UnixStreamImpl<>(stream);
+
+        assertThat(unixStream.cut(";", 2)).containsExactly("foo");
+    }
+
+    @Test
+    public void dos2unix() throws Exception {
+        stream = Stream.of("a\r\n", "b\r\nc\r\n");
+        unixStream = new UnixStreamImpl<>(stream);
+
+        assertThat(unixStream.dos2unix()).containsExactly("a\n", "b\nc\n");
+    }
+
+    @Test
+    public void getShouldReturnTheOriginalStream() throws Exception {
+        assertThat(UnixStream.unixify(stream).get()).isEqualTo(stream);
     }
 
     @Test
@@ -62,8 +101,4 @@ public class UnixStreamImplTest {
         assertThat(items).isNotNull().isNotEmpty().hasSize(2).containsExactly("name", "bar");
     }
 
-    @Test
-    public void getShouldReturnTheOriginalStream() throws Exception {
-        assertThat(UnixStream.unixify(stream).get()).isEqualTo(stream);
-    }
 }
