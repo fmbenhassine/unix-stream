@@ -1,6 +1,6 @@
 # What is UnixStream?
 
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/benas/unix-stream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/benas/unix-stream?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.benas/unix-stream/badge.svg?style=flat)](http://search.maven.org/#artifactdetails|io.github.benas|unix-stream|0.5|)
 [![Build Status](https://travis-ci.org/benas/unix-stream.svg?branch=master)](https://travis-ci.org/benas/unix-stream)
