@@ -22,7 +22,7 @@ It provides a set of components that mimic Unix commands (and more).
 
 You can use UnixStream in 3 ways:
 
-#### 1. Either unixifiy your stream and process it the unix way:
+#### 1. Either unixify your stream and process it the unix way:
 
 ```java
 Stream<String> stream = Stream.of("foo", "bar", "bar", "baz");
